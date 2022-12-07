@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mycom.Exceptions.InvalidProductIdException;
 import com.mycom.model.Product;
-import com.mycom.service.InvalidProductIdException;
+
 import com.mycom.service.ProductService;
 
 
@@ -25,7 +26,7 @@ public class ProductController {
 	}
 	//retrieves a specific user detail
 	@GetMapping("/product/{productid}")
-	public Product retriveProduct(@PathVariable int productid) throws InvalidProductIdException 
+	public Product retriveProduct(@PathVariable int productid) throws InvalidProductIdException
 	{
 	return productservice.findOneProduct(productid);
 	}
