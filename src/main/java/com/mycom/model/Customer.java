@@ -26,14 +26,14 @@ public class Customer {
   @Pattern(regexp = "^[A-Za-z]+([ ][a-zA-Z]+)*$", message = "there should be no special characters.")
   private String custName;
 
-  @Size(min = 10, max = 10, message = "Phone number should be 10 digits")
+  //@Size(min = 10, max = 10, message = "Phone number should be 10 digits")
   private Long custPhoneNumber;
 
   @NotNull
   private Date custRegisterDate;
 
+  
   @Size(min = 3, max = 12, message = "username should be within 3 to 12 characters")
-  @Pattern(regexp = "^[a-zA-Z][\\w]{2,10}$", message = "there should be no special characters.")
   @Column(name = "custUName", unique = true)
   private String custUserName;
 
