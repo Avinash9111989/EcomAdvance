@@ -16,13 +16,6 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Override
   public Customer regsiterCustomer(Customer cust) {
-
-    // Customer custt = Cr.save(cust);
-    // System.out.println(custt.getCustId());
-    // Orderr ordObj = new Orderr();
-    // ordObj.setCustomer(custt);
-    // Or.save(ordObj);
-    // return custt;
     return Cr.save(cust);
   }
 
