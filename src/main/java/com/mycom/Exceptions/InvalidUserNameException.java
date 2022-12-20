@@ -1,9 +1,7 @@
 package com.mycom.Exceptions;
 
-
-public class InvalidUserNameException extends Exception{
-	InvalidUserNameException(String msg)
-	{
-		super(msg);
-	}
+public class InvalidUserNameException extends Exception {
+  public InvalidUserNameException(String msg) {
+    super(msg);
+  }
 }
