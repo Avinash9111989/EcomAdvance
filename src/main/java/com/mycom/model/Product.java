@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="product")
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private int productId;
 private String productName;
 private float productPrice;
