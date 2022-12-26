@@ -26,4 +26,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	
 	@Query(value = "select * from product p order by p.product_price",nativeQuery = true)
 	List<Product> getAllProductsByPrice();
+	public List<Product> findByproductType(String productType);
+	public List<Product> findByproductName(String productName);
 }

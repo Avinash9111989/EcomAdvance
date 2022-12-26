@@ -30,11 +30,16 @@ public class ProductController {
 	{
 		return productservice.findOneProduct(productid);
 	}
-	
-	@GetMapping("/products/{productType}")
-	public List<Product> getProductsByType(@PathVariable String productType)
+
+	@GetMapping("/product1/{productType}")
+	public List<Product>findByproductType(@PathVariable String productType)throws InvalidProductTypeException
 	{
-		return productservice.getProductsByType(productType);
+		return productservice.findByproductType(productType);
+	}
+	@GetMapping("/product2/{productName}")
+	public List<Product>findByproductName(@PathVariable String productName)throws InvalidProductNameException
+	{
+		return productservice.findByproductName(productName);
 	}
 	
 	@GetMapping("/products/distinctProducts")

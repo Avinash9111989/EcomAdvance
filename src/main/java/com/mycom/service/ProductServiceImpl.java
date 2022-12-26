@@ -64,5 +64,14 @@ public class ProductServiceImpl implements ProductService {
 		return Pr.getAllProductsByPrice();
 		
 	}
-
+	@Override
+	public List<product>findByproductType(String productType)
+	{
+		return productrepo.findByproductType(productType);
+	}
+	@Override
+	public List<product>findByproductName(String productName)
+	{
+		return productrepo.findByproducName(productName);
+	}
 }

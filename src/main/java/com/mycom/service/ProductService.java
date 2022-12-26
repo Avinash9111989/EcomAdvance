@@ -21,5 +21,7 @@ public interface ProductService {
 	public List<Product> getAllProductsByType();
 
 	public List<Product> getAllProductsByPrice();
-
+	public List<Product>findByproductType(String productType)throws InvalidProductTypeException();
+	
+	public List<Product>findByproductName(String productName)throws InvalidProductNameException();
 }
