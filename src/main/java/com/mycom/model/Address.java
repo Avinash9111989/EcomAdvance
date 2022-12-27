@@ -1,5 +1,6 @@
 package com.mycom.model;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,4 +28,5 @@ public class Address
 	private @Getter @Setter String streetName;
 	private @Getter @Setter String cityName;
 	private @Getter @Setter int pinCode;
+
 }

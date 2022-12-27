@@ -1,5 +1,6 @@
 package com.mycom.model;
 
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -43,4 +44,5 @@ public class Customer {
   
   @OneToOne(cascade = {CascadeType.ALL})
   private Address address;
+>>>>>>> 7d7bd57f451b237bf38695a25e7a4f8fc82294f9
 }
