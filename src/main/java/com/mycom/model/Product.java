@@ -11,7 +11,7 @@ import javax.validation.constraints.Pattern;
 @Table(name="product")
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 private int productId;
 	 @Pattern(regexp="^[a-zA-Z]{3}",message="length must be 3")  
 private String productName;

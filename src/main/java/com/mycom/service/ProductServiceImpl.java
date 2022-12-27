@@ -17,23 +17,61 @@ import com.mycom.repository.ProductRepository;
 public class ProductServiceImpl implements ProductService {
 	
 	@Autowired
-	ProductRepository productrepo;
+	ProductRepository Pr;
 
 	@Override
-	public List<Product> getAllProducts() {
-		return productrepo.findAll();
+	public List<Product> getAllProducts() 
+	{
+		return Pr.findAll();
 	}
 
 	@Override
-	public Product findOneProduct(int productid) throws InvalidProductIdException  {
-		Optional<Product> optional = productrepo.findById( productid);
+	public Product findOneProduct(int productid) throws InvalidProductIdException  
+	{
+		Optional<Product> optional = Pr.findById( productid);
 		Product product = null;
-		if (optional.isPresent()) {
+		if (optional.isPresent()) 
+		{
 			product = optional.get();
-		} else {
+		}
+		else 
+		{
 			throw new InvalidProductIdException(" Product not found for id :: " + productid);
 		}
 		return product;
 	}
 
+	@Override
+	public List<Product> getProductsByType(String productType) 
+	{
+		return Pr.getProductsByType(productType);
+		
+	}
+
+	@Override
+	public List<String> getDistinctProduct() {
+		return Pr.getDistinctProducts();
+	}
+
+	@Override
+	public List<Product> getAllProductsByType() 
+	{
+		return Pr.getAllProductsByType();
+	}
+
+	@Override
+	public List<Product> getAllProductsByPrice() {
+		return Pr.getAllProductsByPrice();
+		
+	}
+	@Override
+	public List<product>findByproductType(String productType)
+	{
+		return productrepo.findByproductType(productType);
+	}
+	@Override
+	public List<product>findByproductName(String productName)
+	{
+		return productrepo.findByproducName(productName);
+	}
 }
