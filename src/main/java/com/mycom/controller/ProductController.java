@@ -19,9 +19,10 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productservice;
-	@GetMapping("/product")
+	@GetMapping("/products")
 	public List<Product> retriveAllProducts()
 	{
+	
 	return productservice.getAllProducts();
 	}
 	//retrieves a specific user detail
