@@ -10,5 +10,4 @@ public class ecom {
 	public static void main(String[] args) {
 		SpringApplication.run(ecom.class, args);
 	}
-
 }
