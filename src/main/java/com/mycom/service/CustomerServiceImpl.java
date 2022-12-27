@@ -4,35 +4,58 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.mycom.Exceptions.InvalidUserNameException;
 import com.mycom.model.Customer;
-import com.mycom.repository.CustomerRepository;
-
+import com.mycom.repository.CustomerRepo;
 
 @Service
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
-	@Autowired
-	CustomerRepository cr;
+  @Autowired
+  CustomerRepo Cr;
+  // OrderRepo Or;
 
-	@Override
-	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return cr.findAll();
-	}
+  @Override
+  public Customer regsiterCustomer(Customer cust) {
+    return Cr.save(cust);
+  }
 
-	@Override
-	public Customer customerRegistration(Customer cust) {
-		// TODO Auto-generated method stub
-		return cr.save(cust);
-	}
-	
-	@Override
-	public Customer customerUpdatee(int id, Customer cust) {
-		// TODO Auto-generated method stub
-		Customer datafromDB=cr.findById(id).get();
-		datafromDB.setCustomerName(cust.getCustomerName());
-		return cr.save(datafromDB);
-	}
+  @Override
+  public boolean loginCustomer(Customer cust) {
+    Customer databaseObject = Cr.findBycustUserName(cust.getCustUserName());
+    if (databaseObject == null){ return false; }
+    if (databaseObject.getCustUserName().equals(cust.getCustUserName())
+      && databaseObject.getCustPassword().equals(cust.getCustPassword())){
+      return true;
+    }
+    return false;
+  }
+
+  @Override
+  public List<Customer> getCustomers() {
+    return Cr.findAll();
+
+  }
+
+  @Override
+  public Customer updateCustomerByUserName(String userName, Customer cust) throws Exception {
+    Customer ans = null;
+    Customer dataFromDb = Cr.findBycustUserName(userName);
+    if (dataFromDb == null) throw new InvalidUserNameException("username doesnt exist");
+    dataFromDb.setCustUserName(cust.getCustUserName());
+    System.out.println("updated the user name");
+    return Cr.save(dataFromDb);
+
+  }
+
+  @Override
+  public Customer getCustomerById(int id) {
+    return Cr.findById(id).get();
+  }
+
+  @Override
+  public Customer getCustomerByUserName(String userName) {
+    return Cr.findBycustUserName(userName);
+  }
 
 }

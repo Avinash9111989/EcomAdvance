@@ -1,46 +1,32 @@
 package com.mycom.model;
 
-import javax.persistence.Embeddable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Embeddable
-public class Address {
+@Entity
+public class Address 
+{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "AddrID")
+	private int id;
 	
-	private String Street;
-	private String City;
-	private String State;
-	private String Country;
-	private String ZipCode;
-	public String getStreet() {
-		return Street;
-	}
-	public void setStreet(String street) {
-		Street = street;
-	}
-	public String getCity() {
-		return City;
-	}
-	public void setCity(String city) {
-		City = city;
-	}
-	public String getState() {
-		return State;
-	}
-	public void setState(String state) {
-		State = state;
-	}
-	public String getCountry() {
-		return Country;
-	}
-	public void setCountry(String country) {
-		Country = country;
-	}
-	public String getZipCode() {
-		return ZipCode;
-	}
-	public void setZipCode(String zipCode) {
-		ZipCode = zipCode;
-	}
+	@OneToOne(cascade = {CascadeType.ALL},mappedBy = "address")
+	private Customer cust;
 	
+	private @Getter @Setter String streetName;
+	private @Getter @Setter String cityName;
+	private @Getter @Setter int pinCode;
 
 }
