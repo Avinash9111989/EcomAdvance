@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-<<<<<<< HEAD
-    <wb-module deploy-name="EcomAdvance">
-=======
-    <wb-module deploy-name="ecomadvance">
->>>>>>> 7d7bd57f451b237bf38695a25e7a4f8fc82294f9
-        <wb-resource deploy-path="/" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/" source-path="/src/test/java"/>
-    </wb-module>
-</project-modules>
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId"/>
