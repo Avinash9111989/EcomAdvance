@@ -48,8 +48,8 @@ public class CustomerServiceImpl implements CustomerService {
   }
 //
   @Override
-  public Customer getCustomerById(int id1) {
-    return Cr.findById(id1).get();
+  public Customer getCustomerById(int id) {
+    return Cr.findById(id).get();
   }
 
   @Override
