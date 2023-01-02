@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mycom.Exceptions.InvalidProductIdException;
+import com.mycom.Exceptions.InvalidProductNameException;
 import com.mycom.model.Product;
 import com.mycom.repository.ProductRepository;
 
@@ -22,54 +23,59 @@ public class ProductServiceImpl implements ProductService {
 	{
 		return Pr.findAll();
 	}
-
+	public Product saveProduct(Product product) {
+		return Pr.save(product);
+	}
+//
 	@Override
 	public Product findOneProduct(int productid) throws InvalidProductIdException  
 	{
-		Optional<Product> optional = Pr.findById( productid);
+		Product optional = Pr.findById( productid).orElse(null);
 		Product product = null;
-		if (optional.isPresent()) 
+		if (optional.equals(null)) 
 		{
-			product = optional.get();
+			throw new InvalidProductIdException(" Product not found for id :: " + productid);
+			
 		}
 		else 
 		{
-			throw new InvalidProductIdException(" Product not found for id :: " + productid);
-		}
+			product = optional;
+			}
 		return product;
 	}
+//
+//	@Override
+//	public List<Product> getProductsByType(String productType) 
+//	{
+//		return Pr.getProductsByType(productType);
+//		
+//	}
+//
+//	@Override
+//	public List<String> getDistinctProduct() {
+//		return Pr.getDistinctProducts();
+//	}
+//
+//	@Override
+//	public List<Product> getAllProductsByType() 
+//	{
+//		return Pr.getAllProductsByType();
+//	}
+//
+//	@Override
+//	public List<Product> getAllProductsByPrice() {
+//		return Pr.getAllProductsByPrice();
+//		
+//	}
+//	@Override
+//	public List<product>findByproductType(String productType)
+//	{
+//		return productrepo.findByproductType(productType);
+//	}
+//	@Override
+//	public List<product>findByproductName(String productName)
+//	{
+//		return productrepo.findByproducName(productName);
+//	}
 
-	@Override
-	public List<Product> getProductsByType(String productType) 
-	{
-		return Pr.getProductsByType(productType);
-		
-	}
-
-	@Override
-	public List<String> getDistinctProduct() {
-		return Pr.getDistinctProducts();
-	}
-
-	@Override
-	public List<Product> getAllProductsByType() 
-	{
-		return Pr.getAllProductsByType();
-	}
-
-	@Override
-	public List<Product> getAllProductsByPrice() {
-		return Pr.getAllProductsByPrice();
-		
-	}
-	@Override
-	public List<product>findByproductType(String productType)
-	{
-		return productrepo.findByproductType(productType);
-	}
-	@Override
-	public List<product>findByproductName(String productName)
-	{
-		return productrepo.findByproducName(productName);
-	}
 }

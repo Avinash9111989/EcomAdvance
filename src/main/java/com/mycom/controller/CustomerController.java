@@ -30,6 +30,7 @@ public class CustomerController {
     {
       throw new InvalidPhoneNumberException("Phone number length should be 10!");
     }
+ 
     
     //checking for special characters in customer's username
     Pattern pattern = Pattern.compile("[^a-zA-Z0-9]");
@@ -43,34 +44,35 @@ public class CustomerController {
     return Cs.regsiterCustomer(cust);
   }
 
-  @PostMapping("/loginCustomer")
+
+  @GetMapping("/loginCustomer")
   public String loginCustomer(@RequestBody Customer cust) {
-    if (Cs.loginCustomer(cust)){ return "Logged in successfully"; }
+    if (Cs.loginCustomer(cust)){ return "Logged in successfully"; 
+    }
     return "Cant login! Invalid credentials";
   }
-
-  @GetMapping("/getCustomers")
-  public List<Customer> getCustomer() {
-    return Cs.getCustomers();
-  }
-
+//
+//  @GetMapping("/getCustomers")
+//  public List<Customer> getCustomer() {
+//    return Cs.getCustomers();
+//  }
+//
   @PutMapping("/updateCustomerByUserName/{userName}")
   public Customer updateCustomerByUserName(@PathVariable("userName") String userName, @RequestBody Customer cust)
     throws Exception {
     return Cs.updateCustomerByUserName(userName, cust);
-
   }
-
-  @GetMapping("/getCustomerById/{id}")
-  public Customer getCustomerById(@PathVariable("id") int id) {
-    return Cs.getCustomerById(id);
-  }
-
-  @GetMapping("/getCustomerByUserName/{userName}")
-  public Customer getCustomerByUserName(@PathVariable("userName") String userName) {
-    return Cs.getCustomerByUserName(userName);
-  }
-
+//
+//  @GetMapping("/getCustomerById/{id}")
+//  public Customer getCustomerById(@PathVariable("id") int id) {
+//    return Cs.getCustomerById(id);
+//  }
+//
+//  @GetMapping("/getCustomerByUserName/{userName}")
+//  public Customer getCustomerByUserName(@PathVariable("userName") String userName) {
+//    return Cs.getCustomerByUserName(userName);
+//  }
+//
   @GetMapping("/")
   public String home() {
     return "welcome home customer!";

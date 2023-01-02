@@ -41,6 +41,18 @@ public String getProductType() {
 public void setProductType(String productType) {
 	this.productType = productType;
 }
+public Product(int productId, @Pattern(regexp = "^[a-zA-Z]{3}", message = "length must be 3") String productName,
+		float productPrice, String productType) {
+	super();
+	this.productId = productId;
+	this.productName = productName;
+	this.productPrice = productPrice;
+	this.productType = productType;
+}
+public Product() {
+	super();
+	// TODO Auto-generated constructor stub
+}
 
 
 }

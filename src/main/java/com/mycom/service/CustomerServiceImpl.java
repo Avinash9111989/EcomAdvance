@@ -30,13 +30,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
     return false;
   }
-
-  @Override
-  public List<Customer> getCustomers() {
-    return Cr.findAll();
-
-  }
-
+//
+//  @Override
+//  public List<Customer> getCustomers() {
+//    return Cr.findAll();
+//
+//  }
+//
   @Override
   public Customer updateCustomerByUserName(String userName, Customer cust) throws Exception {
     Customer ans = null;
@@ -45,17 +45,16 @@ public class CustomerServiceImpl implements CustomerService {
     dataFromDb.setCustUserName(cust.getCustUserName());
     System.out.println("updated the user name");
     return Cr.save(dataFromDb);
-
   }
-
+//
   @Override
   public Customer getCustomerById(int id) {
     return Cr.findById(id).get();
   }
-
-  @Override
-  public Customer getCustomerByUserName(String userName) {
-    return Cr.findBycustUserName(userName);
-  }
+//
+//  @Override
+//  public Customer getCustomerByUserName(String userName) {
+//    return Cr.findBycustUserName(userName);
+//  }
 
 }

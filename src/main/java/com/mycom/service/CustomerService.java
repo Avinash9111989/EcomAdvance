@@ -10,13 +10,13 @@ public interface CustomerService {
   Customer regsiterCustomer(Customer cust);
 
   boolean loginCustomer(Customer cust);
-
-  List<Customer> getCustomers();
-
+//
+//  List<Customer> getCustomers();
+//
   Customer updateCustomerByUserName(String userName, @Valid Customer cust) throws Exception;
-
+//
   Customer getCustomerById(int id);
-
-  Customer getCustomerByUserName(String userName);
+//
+//  Customer getCustomerByUserName(String userName);
 
 }

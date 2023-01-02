@@ -9,13 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import lombok.Data;
 
-@Data
+
 @Entity
 public class Customer {
   @Id
@@ -44,5 +45,61 @@ public class Customer {
   
   @OneToOne(cascade = {CascadeType.ALL})
   private Address address;
->>>>>>> 7d7bd57f451b237bf38695a25e7a4f8fc82294f9
+
+public int getCustId() {
+	return custId;
 }
+
+public void setCustId(int custId) {
+	this.custId = custId;
+}
+
+public String getCustName() {
+	return custName;
+}
+
+public void setCustName(String custName) {
+	this.custName = custName;
+}
+
+public Long getCustPhoneNumber() {
+	return custPhoneNumber;
+}
+
+public void setCustPhoneNumber(Long custPhoneNumber) {
+	this.custPhoneNumber = custPhoneNumber;
+}
+
+public Date getCustRegisterDate() {
+	return custRegisterDate;
+}
+
+public void setCustRegisterDate(Date custRegisterDate) {
+	this.custRegisterDate = custRegisterDate;
+}
+
+public String getCustUserName() {
+	return custUserName;
+}
+
+public void setCustUserName(String custUserName) {
+	this.custUserName = custUserName;
+}
+
+public String getCustPassword() {
+	return custPassword;
+}
+
+public void setCustPassword(String custPassword) {
+	this.custPassword = custPassword;
+}
+
+public Address getAddress() {
+	return address;
+}
+
+public void setAddress(Address address) {
+	this.address = address;
+}
+  
+  }
