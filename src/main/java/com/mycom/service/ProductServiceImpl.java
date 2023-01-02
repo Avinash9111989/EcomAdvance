@@ -43,39 +43,39 @@ public class ProductServiceImpl implements ProductService {
 			}
 		return product;
 	}
-//
-//	@Override
-//	public List<Product> getProductsByType(String productType) 
-//	{
-//		return Pr.getProductsByType(productType);
-//		
-//	}
-//
-//	@Override
-//	public List<String> getDistinctProduct() {
-//		return Pr.getDistinctProducts();
-//	}
-//
-//	@Override
-//	public List<Product> getAllProductsByType() 
-//	{
-//		return Pr.getAllProductsByType();
-//	}
-//
-//	@Override
-//	public List<Product> getAllProductsByPrice() {
-//		return Pr.getAllProductsByPrice();
-//		
-//	}
-//	@Override
-//	public List<product>findByproductType(String productType)
-//	{
-//		return productrepo.findByproductType(productType);
-//	}
-//	@Override
-//	public List<product>findByproductName(String productName)
-//	{
-//		return productrepo.findByproducName(productName);
-//	}
+
+	@Override
+	public List<Product> getProductsByType(String productType) 
+	{
+		return Pr.getProductsByType(productType);
+		
+	}
+
+	@Override
+	public List<String> getDistinctProduct() {
+		return Pr.getDistinctProducts();
+	}
+
+	@Override
+	public List<Product> getAllProductsByType() 
+	{
+		return Pr.getAllProductsByType();
+	}
+
+	@Override
+	public List<Product> getAllProductsByPrice() {
+		return Pr.getAllProductsByPrice();
+		
+	}
+	@Override
+	public List<Product>findByproductType(String productType)
+	{
+		return Pr.findByproductType(productType);
+	}
+	@Override
+	public List<Product>findByproductName(String productName)
+	{
+		return Pr.findByproductName(productName);
+	}
 
 }

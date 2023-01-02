@@ -51,28 +51,28 @@ public class CustomerController {
     }
     return "Cant login! Invalid credentials";
   }
-//
-//  @GetMapping("/getCustomers")
-//  public List<Customer> getCustomer() {
-//    return Cs.getCustomers();
-//  }
-//
+
+  @GetMapping("/getCustomers")
+  public List<Customer> getCustomer() {
+    return Cs.getCustomers();
+  }
+
   @PutMapping("/updateCustomerByUserName/{userName}")
   public Customer updateCustomerByUserName(@PathVariable("userName") String userName, @RequestBody Customer cust)
     throws Exception {
     return Cs.updateCustomerByUserName(userName, cust);
   }
-//
-//  @GetMapping("/getCustomerById/{id}")
-//  public Customer getCustomerById(@PathVariable("id") int id) {
-//    return Cs.getCustomerById(id);
-//  }
-//
-//  @GetMapping("/getCustomerByUserName/{userName}")
-//  public Customer getCustomerByUserName(@PathVariable("userName") String userName) {
-//    return Cs.getCustomerByUserName(userName);
-//  }
-//
+
+  @GetMapping("/getCustomerById/{id}")
+  public Customer getCustomerById(@PathVariable("id") int id) {
+    return Cs.getCustomerById(id);
+  }
+
+  @GetMapping("/getCustomerByUserName/{userName}")
+  public Customer getCustomerByUserName(@PathVariable("userName") String userName) {
+    return Cs.getCustomerByUserName(userName);
+  }
+
   @GetMapping("/")
   public String home() {
     return "welcome home customer!";

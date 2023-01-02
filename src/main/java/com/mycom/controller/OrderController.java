@@ -23,30 +23,16 @@ import com.mycom.service.OrderService;
 public class OrderController 
 {
 	@Autowired
-	CustomerService Cs;
-	
-	@Autowired
-	OrderService Os;
-	@Autowired
-	CustomerRepository customerRepository;
-	@Autowired
-	ProductRepository productRepository;
-	@Autowired
-	OrderRepository orderRepository;
+	OrderService orderService;
 	@PostMapping("/createOrder/{custid}/{prodid}")
 	public Orderr createOrder(@PathVariable int custid,@PathVariable int prodid ,@RequestBody Orderr orderJson)
 	{
-		Customer customer=customerRepository.findById(custid).orElse(null);	
-		orderJson.setCustomer(customer);
-		System.out.println("fgh   "+prodid);
-		Product product= productRepository.findById(prodid).orElse(null);
-		orderJson.setProduct(product);
-		return Os.createOrder(orderJson);
+		return orderService.createOrder(orderJson, custid, prodid);
 		}
 	@GetMapping("/Order/{id}")
 	public List<Orderr> showOrder(@PathVariable int id){
-		Customer customer=customerRepository.findById(id).orElse(null);	
-		return orderRepository.getOrdList(customer);
+		
+		return orderService.showOrdersList(id);
 		
 	}
 	
