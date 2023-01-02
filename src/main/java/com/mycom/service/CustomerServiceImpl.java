@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService {
 
   @Autowired
   CustomerRepo Cr;
-  // OrderRepo Or;
+//   OrderRepo Or;
 
   @Override
   public Customer regsiterCustomer(Customer cust) {
@@ -30,12 +30,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
     return false;
   }
-//
-//  @Override
-//  public List<Customer> getCustomers() {
-//    return Cr.findAll();
-//
-//  }
+
+  @Override
+  public List<Customer> getCustomers() {
+    return Cr.findAll();
+
+  }
 //
   @Override
   public Customer updateCustomerByUserName(String userName, Customer cust) throws Exception {
@@ -51,10 +51,10 @@ public class CustomerServiceImpl implements CustomerService {
   public Customer getCustomerById(int id) {
     return Cr.findById(id).get();
   }
-//
-//  @Override
-//  public Customer getCustomerByUserName(String userName) {
-//    return Cr.findBycustUserName(userName);
-//  }
+
+  @Override
+  public Customer getCustomerByUserName(String userName) {
+    return Cr.findBycustUserName(userName);
+  }
 
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mycom.Exceptions.InvalidProductIdException;
+import com.mycom.Exceptions.InvalidProductNameException;
+import com.mycom.Exceptions.InvalidProductTypeException;
 import com.mycom.model.Product;
 import com.mycom.repository.ProductRepository;
 import com.mycom.service.ProductService;
@@ -40,35 +42,35 @@ public class ProductController {
 	{
 		return productservice.findOneProduct(productid);
 	}
-//
-//	@GetMapping("/product1/{productType}")
-//	public List<Product>findByproductType(@PathVariable String productType)throws InvalidProductTypeException
-//	{
-//		return productservice.findByproductType(productType);
-//	}
-//	@GetMapping("/product2/{productName}")
-//	public List<Product>findByproductName(@PathVariable String productName)throws InvalidProductNameException
-//	{
-//		return productservice.findByproductName(productName);
-//	}
-//	
-//	@GetMapping("/products/distinctProducts")
-//	public List<String> getDistinctProduct()
-//	{
-//		return productservice.getDistinctProduct();
-//	}
-//	
-//	@GetMapping("/products/productsByType")
-//	public List<Product> getAllProductsByType()
-//	{
-//		return productservice.getAllProductsByType();
-//	}
-//	
-//	@GetMapping("/products/productsByPrice")
-//	public List<Product> getAllProductsByPrice()
-//	{
-//		return productservice.getAllProductsByPrice();
-//	}
+
+	@GetMapping("/product1/{productType}")
+	public List<Product>findByproductType(@PathVariable String productType)throws InvalidProductTypeException
+	{
+		return productservice.findByproductType(productType);
+	}
+	@GetMapping("/product2/{productName}")
+	public List<Product>findByproductName(@PathVariable String productName)throws InvalidProductNameException
+	{
+		return productservice.findByproductName(productName);
+	}
+	
+	@GetMapping("/products/distinctProducts")
+	public List<String> getDistinctProduct()
+	{
+		return productservice.getDistinctProduct();
+	}
+	
+	@GetMapping("/products/productsByType")
+	public List<Product> getAllProductsByType()
+	{
+		return productservice.getAllProductsByType();
+	}
+	
+	@GetMapping("/products/productsByPrice")
+	public List<Product> getAllProductsByPrice()
+	{
+		return productservice.getAllProductsByPrice();
+	}
 	
 	
 }
